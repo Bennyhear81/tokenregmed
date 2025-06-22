@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head>
+<head> 
 <meta charset="utf-8"/>
-<meta name="description" content="Explore how IP tokenization transforms the regulatory landscape of medical technology. Insights into digital assets, compliance frameworks, and XRPL deployment." />
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="TokenRegMed - Data-driven pilot testing blockchain solutions for the €74B medical device funding gap. Technical analysis and implementation roadmap." name="description"/>
 <meta content="Dr. Andreas Peters" name="author"/>
 <title>TokenRegMed | Medical Device Funding Analysis - XRPL Pilot Project</title>
-<link rel="canonical" href="https://www.tokenregmed.com/" />
 <style>
         * {
             margin: 0;
@@ -248,6 +246,51 @@
             color: var(--text-secondary);
             font-weight: 300;
         }
+
+        @media (max-width: 768px) {
+            .header-content,
+            .dashboard-container {
+                padding: 0 1.5rem;
+            }
+
+            .logo-group {
+                gap: 1rem;
+            }
+
+            .nav-items {
+                display: none; /* Hide nav items on mobile for now */
+            }
+
+            .dashboard-title {
+                font-size: 2.5rem;
+            }
+
+            .dashboard-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .calculator-button {
+                top: 90px;
+                right: 10px;
+                padding: 0.8rem 1rem;
+                font-size: 0.8rem;
+            }
+
+            .university-badge {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .dashboard-title {
+                font-size: 2rem;
+            }
+            .header-content,
+            .dashboard-container {
+                padding: 0 1rem;
+            }
+        }
+
 
         /* Personal Story Card */
         .story-card {
