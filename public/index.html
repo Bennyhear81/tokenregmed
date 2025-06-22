@@ -328,26 +328,38 @@
                 gap: 1.5rem !important;
             }
 
-            /* Fix arrows for vertical flow */
-            .process-flow-item {
-                padding-right: 0;
-                padding-bottom: 4rem;
+            /* Visual Process Flow: change to vertical */
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* Visual Process Flow: hide original arrows */
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="font-size: 2rem;"] {
+                display: none !important;
+            }
+
+            /* Visual Process Flow: add down-arrows after each item, except the last one */
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"] {
+                padding-bottom: 2.5rem;
                 position: relative;
             }
-            .process-flow-item::after {
-                content: '⬇️'; /* Down arrow */
+
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"]::after {
+                content: '⬇️';
                 position: absolute;
-                bottom: 1rem;
+                bottom: 0;
                 left: 50%;
                 transform: translateX(-50%);
                 font-size: 2rem;
                 color: var(--accent);
             }
-            .process-flow-item:last-child::after {
+
+            /* Hide arrow after the last item */
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"]:last-child::after {
                 display: none;
-            }
-            .process-flow-item > i {
-                display: none; /* Hide original right arrows */
             }
         }
 
@@ -1105,26 +1117,38 @@
                 gap: 1.5rem !important;
             }
 
-            /* Fix arrows for vertical flow */
-            .process-flow-item {
-                padding-right: 0;
-                padding-bottom: 4rem;
+            /* Visual Process Flow: change to vertical */
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            /* Visual Process Flow: hide original arrows */
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="font-size: 2rem;"] {
+                display: none !important;
+            }
+
+            /* Visual Process Flow: add down-arrows after each item, except the last one */
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"] {
+                padding-bottom: 2.5rem;
                 position: relative;
             }
-            .process-flow-item::after {
-                content: '⬇️'; /* Down arrow */
+
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"]::after {
+                content: '⬇️';
                 position: absolute;
-                bottom: 1rem;
+                bottom: 0;
                 left: 50%;
                 transform: translateX(-50%);
                 font-size: 2rem;
                 color: var(--accent);
             }
-            .process-flow-item:last-child::after {
+
+            /* Hide arrow after the last item */
+            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"]:last-child::after {
                 display: none;
-            }
-            .process-flow-item > i {
-                display: none; /* Hide original right arrows */
             }
 
         }
