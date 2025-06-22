@@ -349,6 +349,16 @@
                 transform: translateX(-50%);
                 font-size: 2rem;
             }
+
+            /* Fix calculator chart on mobile */
+            .calculator-modal .comparison-chart {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .calculator-modal .bar-chart {
+                min-width: 600px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1127,6 +1137,15 @@
                 font-size: 2rem;
             }
 
+            /* Fix calculator chart on mobile */
+            .calculator-modal .comparison-chart {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .calculator-modal .bar-chart {
+                min-width: 600px;
+            }
         }
 
         @media (max-width: 480px) {
