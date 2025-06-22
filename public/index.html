@@ -313,6 +313,40 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+
+            /* Fix floating mega stat overlap */
+            div[style*="float: right"] {
+                float: none !important;
+                margin: 2rem auto !important;
+                max-width: 350px;
+            }
+
+            /* Fix Token Economics grid */
+            .cards-grid.token-economics {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Fix arrows for vertical flow */
+            .process-flow-item {
+                padding-right: 0;
+                padding-bottom: 4rem;
+                position: relative;
+            }
+            .process-flow-item::after {
+                content: '⬇️'; /* Down arrow */
+                position: absolute;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 2rem;
+                color: var(--accent);
+            }
+            .process-flow-item:last-child::after {
+                display: none;
+            }
+            .process-flow-item > i {
+                display: none; /* Hide original right arrows */
+            }
         }
 
         @media (max-width: 480px) {
@@ -1055,6 +1089,41 @@
                 flex-direction: column;
                 gap: 1rem;
             }
+
+            /* Fix floating mega stat overlap */
+            div[style*="float: right"] {
+                float: none !important;
+                margin: 2rem auto !important;
+                max-width: 350px;
+            }
+
+            /* Fix Token Economics grid */
+            .cards-grid.token-economics {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Fix arrows for vertical flow */
+            .process-flow-item {
+                padding-right: 0;
+                padding-bottom: 4rem;
+                position: relative;
+            }
+            .process-flow-item::after {
+                content: '⬇️'; /* Down arrow */
+                position: absolute;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 2rem;
+                color: var(--accent);
+            }
+            .process-flow-item:last-child::after {
+                display: none;
+            }
+            .process-flow-item > i {
+                display: none; /* Hide original right arrows */
+            }
+
         }
 
         @media (max-width: 480px) {
