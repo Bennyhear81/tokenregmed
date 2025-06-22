@@ -3317,26 +3317,44 @@
         const videoModal = document.getElementById('video-modal');
         const playBtn = document.getElementById('play-video-btn');
         const closeBtn = document.getElementById('video-close-btn');
-        const video = document.getElementById('intro-video');
+        const introVideo = document.getElementById('intro-video');
 
-        playBtn.onclick = function() {
-            videoModal.style.display = "block";
-            video.play();
+        if (playBtn) {
+            playBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (videoModal) {
+                    videoModal.style.display = 'block';
+                    if (introVideo) {
+                        introVideo.play();
+                    }
+                }
+            });
         }
 
-        closeBtn.onclick = function() {
-            videoModal.style.display = "none";
-            video.pause();
-            video.currentTime = 0;
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                if (videoModal) {
+                    videoModal.style.display = 'none';
+                    if (introVideo) {
+                        introVideo.pause();
+                        introVideo.currentTime = 0;
+                    }
+                }
+            });
         }
 
-        window.onclick = function(event) {
+        window.addEventListener('click', function(event) {
             if (event.target == videoModal) {
-                videoModal.style.display = "none";
-                video.pause();
-                video.currentTime = 0;
+                if (videoModal) {
+                    videoModal.style.display = 'none';
+                    if (introVideo) {
+                        introVideo.pause();
+                        introVideo.currentTime = 0;
+                    }
+                }
             }
-        }
+        });
+
     </script>
 </body>
 </html>
