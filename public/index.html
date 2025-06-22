@@ -3111,14 +3111,17 @@
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
                     // Downscroll
+                    header.style.transition = 'transform 0.5s ease-in-out, background 0.5s ease-in-out';
                     header.style.transform = 'translateY(-100%)';
                 } else if (scrollTop === 0) {
-                    // At the very top
+                    // At the very top - show instantly
+                    header.style.transition = 'none';
                     header.style.transform = 'translateY(0)';
                 }
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             } else {
                 // Ensure header is visible on desktop
+                header.style.transition = 'transform 0.5s ease-in-out, background 0.5s ease-in-out';
                 header.style.transform = 'translateY(0)';
             }
         });
