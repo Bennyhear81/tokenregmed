@@ -328,38 +328,26 @@
                 gap: 1.5rem !important;
             }
 
-            /* Visual Process Flow: change to vertical */
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 1rem !important;
-                margin-bottom: 1rem !important;
+            /* Visual Process Flow: Mobile */
+            .process-flow {
+                flex-direction: column;
+                gap: 1rem;
+                margin-bottom: 1rem;
             }
-
-            /* Visual Process Flow: hide original arrows */
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="font-size: 2rem;"] {
-                display: none !important;
+            .process-flow-arrow {
+                display: none;
             }
-
-            /* Visual Process Flow: add down-arrows after each item, except the last one */
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"] {
-                padding-bottom: 2.5rem;
+            .process-flow-item {
+                padding-bottom: 3rem;
                 position: relative;
             }
-
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"]::after {
+            .process-flow-item:not(:last-of-type)::after {
                 content: '⬇️';
                 position: absolute;
                 bottom: 0;
                 left: 50%;
                 transform: translateX(-50%);
                 font-size: 2rem;
-                color: var(--accent);
-            }
-
-            /* Hide arrow after the last item */
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"]:last-child::after {
-                display: none;
             }
         }
 
@@ -1117,38 +1105,26 @@
                 gap: 1.5rem !important;
             }
 
-            /* Visual Process Flow: change to vertical */
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 1rem !important;
-                margin-bottom: 1rem !important;
+            /* Visual Process Flow: Mobile */
+            .process-flow {
+                flex-direction: column;
+                gap: 1rem;
+                margin-bottom: 1rem;
             }
-
-            /* Visual Process Flow: hide original arrows */
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="font-size: 2rem;"] {
-                display: none !important;
+            .process-flow-arrow {
+                display: none;
             }
-
-            /* Visual Process Flow: add down-arrows after each item, except the last one */
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"] {
-                padding-bottom: 2.5rem;
+            .process-flow-item {
+                padding-bottom: 3rem;
                 position: relative;
             }
-
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"]::after {
+            .process-flow-item:not(:last-of-type)::after {
                 content: '⬇️';
                 position: absolute;
                 bottom: 0;
                 left: 50%;
                 transform: translateX(-50%);
                 font-size: 2rem;
-                color: var(--accent);
-            }
-
-            /* Hide arrow after the last item */
-            div[style*="justify-content: space-between"][style*="flex-wrap: wrap"] > div[style*="flex: 1;"]:last-child::after {
-                display: none;
             }
 
         }
@@ -2108,32 +2084,32 @@
 <h3 class="widget-title">How Medical Device Token Financing Actually Works</h3>
 <!-- Visual Process Flow -->
 <div style="margin: 2rem 0;">
-<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;">
-<div style="flex: 1; min-width: 150px; text-align: center;">
+<div class="process-flow" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;">
+<div class="process-flow-item" style="flex: 1; min-width: 150px; text-align: center;">
 <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem;">
                                 🏥
                             </div>
 <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Device Maker</h4>
 <p style="color: var(--text-secondary); font-size: 0.875rem;">Needs €1M funding</p>
 </div>
-<div style="color: var(--accent); font-size: 2rem;">→</div>
-<div style="flex: 1; min-width: 150px; text-align: center;">
+<div class="process-flow-arrow" style="color: var(--accent); font-size: 2rem;">→</div>
+<div class="process-flow-item" style="flex: 1; min-width: 150px; text-align: center;">
 <div style="width: 80px; height: 80px; background: var(--gradient-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem;">
                                 🪙
                             </div>
 <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Creates Tokens</h4>
 <p style="color: var(--text-secondary); font-size: 0.875rem;">1M DEVICE tokens</p>
 </div>
-<div style="color: var(--accent); font-size: 2rem;">→</div>
-<div style="flex: 1; min-width: 150px; text-align: center;">
+<div class="process-flow-arrow" style="color: var(--accent); font-size: 2rem;">→</div>
+<div class="process-flow-item" style="flex: 1; min-width: 150px; text-align: center;">
 <div style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem;">
                                 💰
                             </div>
 <h4 style="color: var(--text-primary); margin-bottom: 0.5rem;">Investors Buy</h4>
 <p style="color: var(--text-secondary); font-size: 0.875rem;">€1 = 1 token</p>
 </div>
-<div style="color: var(--accent); font-size: 2rem;">→</div>
-<div style="flex: 1; min-width: 150px; text-align: center;">
+<div class="process-flow-arrow" style="color: var(--accent); font-size: 2rem;">→</div>
+<div class="process-flow-item" style="flex: 1; min-width: 150px; text-align: center;">
 <div style="width: 80px; height: 80px; background: var(--gradient-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-size: 2rem;">
                                 📈
                             </div>
