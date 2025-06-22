@@ -152,6 +152,7 @@
             backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
             z-index: 1000;
+            transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
         }
 
         .header-content {
@@ -3095,20 +3096,28 @@
         let lastScrollTop = 0;
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                // Downscroll
-                header.style.transform = 'translateY(-100%)';
-            } else {
-                // Upscroll
-                header.style.transform = 'translateY(0)';
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
 
+            // Background color change on scroll (all devices)
             if (window.scrollY > 50) {
                 header.style.background = 'rgba(10, 14, 39, 0.95)';
             } else {
                 header.style.background = 'rgba(10, 14, 39, 0.8)';
+            }
+
+            // Hide/show header on scroll (mobile only)
+            if (window.innerWidth <= 768) {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                    // Downscroll
+                    header.style.transform = 'translateY(-100%)';
+                } else {
+                    // Upscroll
+                    header.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            } else {
+                // Ensure header is visible on desktop
+                header.style.transform = 'translateY(0)';
             }
         });
 
