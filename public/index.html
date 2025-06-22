@@ -3190,11 +3190,11 @@
             if (window.innerWidth <= 768) {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
-                    // Downscroll
+                    // Downscroll - hide header
                     header.style.transition = 'transform 0.5s ease-in-out, background 0.5s ease-in-out';
                     header.style.transform = 'translateY(-100%)';
                 } else if (scrollTop === 0) {
-                    // At the very top - show instantly
+                    // Scrolled to the very top - show header instantly
                     header.style.transition = 'none';
                     header.style.transform = 'translateY(0)';
                 }
