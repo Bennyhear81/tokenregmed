@@ -1300,6 +1300,47 @@
                 grid-template-columns: repeat(3, 1fr) !important;
             }
         }
+
+        /* Video Modal Styles */
+        .video-modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .video-modal-content {
+            position: relative;
+            margin: auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 900px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .video-close-btn {
+            color: #aaa;
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            font-size: 40px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .video-close-btn:hover,
+        .video-close-btn:focus {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -1435,6 +1476,19 @@
 <p style="margin-top: 0.5rem; color: var(--text-tertiary); font-size: 0.875rem;">
                     Research: "Blockchain Platform Selection for Medical Device Innovation" - Rosenheim University (2024)
                 </p>
+<div style="margin-top: 2rem;">
+<a class="cta-secondary" href="#" id="play-video-btn">▶ Watch Intro Video</a>
+</div>
+</div>
+<!-- Video Modal -->
+<div class="video-modal" id="video-modal">
+<div class="video-modal-content">
+<span class="video-close-btn" id="video-close-btn">×</span>
+<video controls id="intro-video" width="100%">
+<source src="https://videos.pexels.com/video-files/3214811/3214811-hd_1280_720_25fps.mp4" type="video/mp4"/>
+                Your browser does not support the video tag.
+            </video>
+</div>
 </div>
 <!-- FLOATING MEGA STAT -->
 <div style="position: relative; float: right; margin: -50px 0 20px 20px; background: linear-gradient(135deg, #ff3366, #ff6b6b); padding: 1.5rem 2rem; border-radius: 15px; box-shadow: 0 10px 30px rgba(255,51,102,0.3); text-align: center;">
@@ -3258,6 +3312,31 @@
                 observer.observe(el);
             });
         });
+
+        // Video Modal Logic
+        const videoModal = document.getElementById('video-modal');
+        const playBtn = document.getElementById('play-video-btn');
+        const closeBtn = document.getElementById('video-close-btn');
+        const video = document.getElementById('intro-video');
+
+        playBtn.onclick = function() {
+            videoModal.style.display = "block";
+            video.play();
+        }
+
+        closeBtn.onclick = function() {
+            videoModal.style.display = "none";
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        window.onclick = function(event) {
+            if (event.target == videoModal) {
+                videoModal.style.display = "none";
+                video.pause();
+                video.currentTime = 0;
+            }
+        }
     </script>
 </body>
 </html>
