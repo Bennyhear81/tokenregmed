@@ -3112,8 +3112,8 @@
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
                     // Downscroll
                     header.style.transform = 'translateY(-100%)';
-                } else {
-                    // Upscroll
+                } else if (scrollTop === 0) {
+                    // At the very top
                     header.style.transform = 'translateY(0)';
                 }
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
