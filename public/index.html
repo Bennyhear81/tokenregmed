@@ -3069,6 +3069,20 @@
         function openCalculator() {
             document.getElementById('calculatorModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
+            
+            // Apply mobile-specific styles for the chart to ensure it's scrollable
+            if (window.innerWidth <= 768) {
+                const chartContainer = document.querySelector('.calculator-modal .comparison-chart');
+                if (chartContainer) {
+                    chartContainer.style.overflowX = 'auto';
+                    chartContainer.style.webkitOverflowScrolling = 'touch';
+                }
+                const barChart = document.querySelector('.calculator-modal .bar-chart');
+                if (barChart) {
+                    barChart.style.minWidth = '600px';
+                }
+            }
+
             // Run calculation with default values
             calculateCosts();
         }
