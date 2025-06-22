@@ -247,6 +247,15 @@
             font-weight: 300;
         }
 
+        @media (max-width: 992px) {
+            .metrics-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .platform-results {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .header-content,
             .dashboard-container {
@@ -270,14 +279,39 @@
             }
 
             .calculator-button {
-                top: 90px;
-                right: 10px;
+                top: auto;
+                bottom: 20px;
+                right: 20px;
                 padding: 0.8rem 1rem;
                 font-size: 0.8rem;
             }
 
             .university-badge {
                 display: none;
+            }
+
+            .metrics-grid,
+            .platform-results,
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .results-table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .personal-story-card, .results-card, .calculator-card {
+                padding: 1.5rem;
+            }
+
+            .personal-story-title, .results-title, .calculator-title {
+                font-size: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
 
@@ -290,7 +324,6 @@
                 padding: 0 1rem;
             }
         }
-
 
         /* Personal Story Card */
         .story-card {
