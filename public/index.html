@@ -349,41 +349,6 @@
                 transform: translateX(-50%);
                 font-size: 2rem;
             }
-
-            /* Scrollable Tables Hint */
-            .comparison-table-container,
-            .calculator-modal .comparison-chart {
-                position: relative;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .comparison-table-container::after,
-            .calculator-modal .comparison-chart::after {
-                content: '↔️ wischen';
-                position: absolute;
-                bottom: 8px;
-                right: 12px;
-                font-size: 0.7rem;
-                font-weight: 600;
-                color: var(--text-secondary);
-                background-color: rgba(10, 14, 39, 0.8);
-                padding: 4px 8px;
-                border-radius: 6px;
-                opacity: 0;
-                animation: fade-in-out 3s ease-in-out 1s forwards;
-            }
-
-            @keyframes fade-in-out {
-                0% { opacity: 0; }
-                50% { opacity: 1; }
-                100% { opacity: 0; }
-            }
-
-            .comparison-table,
-            .calculator-modal .bar-chart {
-                min-width: 600px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1162,40 +1127,6 @@
                 font-size: 2rem;
             }
 
-            /* Scrollable Tables Hint */
-            .comparison-table-container,
-            .calculator-modal .comparison-chart {
-                position: relative;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            .comparison-table-container::after,
-            .calculator-modal .comparison-chart::after {
-                content: '↔️ wischen';
-                position: absolute;
-                bottom: 8px;
-                right: 12px;
-                font-size: 0.7rem;
-                font-weight: 600;
-                color: var(--text-secondary);
-                background-color: rgba(10, 14, 39, 0.8);
-                padding: 4px 8px;
-                border-radius: 6px;
-                opacity: 0;
-                animation: fade-in-out 3s ease-in-out 1s forwards;
-            }
-
-            @keyframes fade-in-out {
-                0% { opacity: 0; }
-                50% { opacity: 1; }
-                100% { opacity: 0; }
-            }
-
-            .comparison-table,
-            .calculator-modal .bar-chart {
-                min-width: 600px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1457,7 +1388,6 @@
 <h2 class="widget-title" style="font-size: 1.75rem; color: var(--danger);">⚠️ Why This ONLY Works on XRPL - The Math</h2>
 <div style="margin-bottom: 2rem;">
 <h3 style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">Scientific Study: 5-Year Medical Device Project Costs</h3>
-<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -1504,7 +1434,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
                         Source: "Blockchain Platform Selection for Medical Device Innovation" - Rosenheim University (2024)
                     </p>
@@ -1604,7 +1533,6 @@
 <!-- XRPL Native Features -->
 <div class="comparison-widget" style="background: rgba(42, 92, 255, 0.05);">
 <h3 class="widget-title">XRPL's Unique Native Features (No Smart Contracts Needed)</h3>
-<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -1659,7 +1587,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <!-- Academic Validation Box -->
 <div class="comparison-widget" style="background: linear-gradient(135deg, rgba(42, 92, 255, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%); border: 2px solid var(--accent); margin-bottom: 3rem;">
@@ -1760,7 +1687,6 @@
 <!-- Why Not Other Solutions -->
 <div class="comparison-widget" style="background: rgba(255, 255, 255, 0.02);">
 <h3 class="widget-title">Why Not Other Solutions?</h3>
-<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -1802,7 +1728,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <!-- Technical Validation -->
 <div class="progress-widget">
@@ -2424,7 +2349,6 @@
 <!-- Budget Breakdown -->
 <div class="comparison-widget">
 <h3 class="widget-title">Transparent Budget: Every Euro Counts</h3>
-<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -2473,7 +2397,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 </div>
 <!-- No-Lose Guarantee -->
 <div class="comparison-widget">
@@ -2610,7 +2533,6 @@
 <!-- Device Examples -->
 <div class="comparison-widget">
 <h3 class="widget-title">Representative Device Pipeline</h3>
-<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -2659,7 +2581,6 @@
 </tr>
 </tbody>
 </table>
-</div>
 <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary);">
                     Note: All devices below traditional VC investment threshold of €5M
                 </p>
@@ -3129,7 +3050,6 @@
         function openCalculator() {
             document.getElementById('calculatorModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
-
             // Run calculation with default values
             calculateCosts();
         }
@@ -3191,17 +3111,14 @@
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
                     // Downscroll
-                    header.style.transition = 'transform 0.5s ease-in-out, background 0.5s ease-in-out';
                     header.style.transform = 'translateY(-100%)';
-                } else if (scrollTop === 0) {
-                    // At the very top - show instantly
-                    header.style.transition = 'none';
+                } else {
+                    // Upscroll
                     header.style.transform = 'translateY(0)';
                 }
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             } else {
                 // Ensure header is visible on desktop
-                header.style.transition = 'transform 0.5s ease-in-out, background 0.5s ease-in-out';
                 header.style.transform = 'translateY(0)';
             }
         });
