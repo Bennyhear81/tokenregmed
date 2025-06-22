@@ -349,6 +349,41 @@
                 transform: translateX(-50%);
                 font-size: 2rem;
             }
+
+            /* Scrollable Tables Hint */
+            .comparison-table-container,
+            .calculator-modal .comparison-chart {
+                position: relative;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .comparison-table-container::after,
+            .calculator-modal .comparison-chart::after {
+                content: '↔️ wischen';
+                position: absolute;
+                bottom: 8px;
+                right: 12px;
+                font-size: 0.7rem;
+                font-weight: 600;
+                color: var(--text-secondary);
+                background-color: rgba(10, 14, 39, 0.8);
+                padding: 4px 8px;
+                border-radius: 6px;
+                opacity: 0;
+                animation: fade-in-out 3s ease-in-out 1s forwards;
+            }
+
+            @keyframes fade-in-out {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+
+            .comparison-table,
+            .calculator-modal .bar-chart {
+                min-width: 600px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1127,6 +1162,40 @@
                 font-size: 2rem;
             }
 
+            /* Scrollable Tables Hint */
+            .comparison-table-container,
+            .calculator-modal .comparison-chart {
+                position: relative;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .comparison-table-container::after,
+            .calculator-modal .comparison-chart::after {
+                content: '↔️ wischen';
+                position: absolute;
+                bottom: 8px;
+                right: 12px;
+                font-size: 0.7rem;
+                font-weight: 600;
+                color: var(--text-secondary);
+                background-color: rgba(10, 14, 39, 0.8);
+                padding: 4px 8px;
+                border-radius: 6px;
+                opacity: 0;
+                animation: fade-in-out 3s ease-in-out 1s forwards;
+            }
+
+            @keyframes fade-in-out {
+                0% { opacity: 0; }
+                50% { opacity: 1; }
+                100% { opacity: 0; }
+            }
+
+            .comparison-table,
+            .calculator-modal .bar-chart {
+                min-width: 600px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1388,6 +1457,7 @@
 <h2 class="widget-title" style="font-size: 1.75rem; color: var(--danger);">⚠️ Why This ONLY Works on XRPL - The Math</h2>
 <div style="margin-bottom: 2rem;">
 <h3 style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">Scientific Study: 5-Year Medical Device Project Costs</h3>
+<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -1434,6 +1504,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
                         Source: "Blockchain Platform Selection for Medical Device Innovation" - Rosenheim University (2024)
                     </p>
@@ -1533,6 +1604,7 @@
 <!-- XRPL Native Features -->
 <div class="comparison-widget" style="background: rgba(42, 92, 255, 0.05);">
 <h3 class="widget-title">XRPL's Unique Native Features (No Smart Contracts Needed)</h3>
+<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -1587,6 +1659,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <!-- Academic Validation Box -->
 <div class="comparison-widget" style="background: linear-gradient(135deg, rgba(42, 92, 255, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%); border: 2px solid var(--accent); margin-bottom: 3rem;">
@@ -1687,6 +1760,7 @@
 <!-- Why Not Other Solutions -->
 <div class="comparison-widget" style="background: rgba(255, 255, 255, 0.02);">
 <h3 class="widget-title">Why Not Other Solutions?</h3>
+<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -1728,6 +1802,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <!-- Technical Validation -->
 <div class="progress-widget">
@@ -2349,6 +2424,7 @@
 <!-- Budget Breakdown -->
 <div class="comparison-widget">
 <h3 class="widget-title">Transparent Budget: Every Euro Counts</h3>
+<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -2397,6 +2473,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <!-- No-Lose Guarantee -->
 <div class="comparison-widget">
@@ -2533,6 +2610,7 @@
 <!-- Device Examples -->
 <div class="comparison-widget">
 <h3 class="widget-title">Representative Device Pipeline</h3>
+<div class="comparison-table-container">
 <table class="comparison-table">
 <thead>
 <tr>
@@ -2581,6 +2659,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p style="text-align: center; margin-top: 1rem; color: var(--text-secondary);">
                     Note: All devices below traditional VC investment threshold of €5M
                 </p>
@@ -2682,7 +2761,7 @@
             </p>
 <div class="cta-actions">
 <a class="cta-primary" href="mailto:a.peters81@icloud.com?subject=TokenRegMed%20Pilot%20Discussion">Discuss Pilot</a>
-<a class="cta-secondary" href="#">Download Research</a>
+<a class="cta-secondary" href="https://download.ssrn.com/2025/6/10/5287445.pdf?response-content-disposition=inline&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAUaCXVzLWVhc3QtMSJHMEUCICLxXp7qOfSY3b0vH3noLQPVphBhvI2rlOv0yrQOFh1PAiEAwA1lIxgAMZNDQscC3QMJIjqyznOrI7HDz4%2BIgPrY3qkqxQUI7v%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FARAEGgwzMDg0NzUzMDEyNTciDB7vR1LzEOAyCFZuGiqZBbdAaaYPTdVAfVKnnvvGh1FhBxJAPopJwVErnTOuUFF6ZzKgy8aigFwKngVJ7YeF%2BjVu18P92RvcYawjYRANVk%2Bx7jwPgBnjiDNxMnKlvVcdFpS5FOVYldfDhoN0JpcsCqEW0GX4CYMac%2BqQPqGcN4MWUJDHkhY5Bbgo3dEqxbCy3sYtf8yMCLw13EIlb2RJfOWTPAeoO%2Fnv6s2AYdFU5%2BkR2bLlgsfUb10qE1PJGm2sW9US5zkdujZlyWZzA2RQmD9pdMc%2BFLSSUj9P9%2B54pMdg87%2FMugKss2zFR%2BdJQ7ZnCtcM67dQc4ZXyaJsjcT9GllvmSyHkyAT7y7y3rt%2FxLGDGYMk44bkAkSPnR0y5rowJ3kBm1FgCHe%2BM%2Fw2u5bHeYhtQEAdykObCLZbRS4%2B5G4cNBohjmzjqiIYBvB45QtXx%2BTcQvWDZxbGjy1L4ebB3MHeN9dzmmHP2XPCwu9jtHa78dx6LXQoDPMRg%2F%2BJBW3C2DSKPI%2B79jGa0Fr3yupIId11b5SX8Knkdy3onFZ6%2FCsj%2BEHInJVEIbmdykjnaHSngyL03%2BivRFhHQbPpeMTsoaYqzilEKKFQBENcrdf2oMykMJVoXP89ri1MkfzMa%2FwDTfGAPF7tI500gVbgINUbvYoxOwuDbI2nyqMiWqj8MAq%2B%2FxfRbhWh7dt4CEkoYV2gfbViIy1jFUdRhE7nIlmZArfasW7UylELm2FY4Geo845MrGgIe0UQZIySRO9jwnTsoR0R5SFIB1TLSGQiLplP1HW2cHe0gah9QH6XNT%2F1KN33gjGsWd58TQbcZxrYPhfKxrlq%2F%2BwfG%2BddpKADYzMqW2jGVShRqrnQqZU7wQjVld9T7a78RZiOdiCMtoaY%2Fuc36Jdc5SoZ6K7NMMD238IGOrEBDE0AXxa8o0Anv3jD8VCtVplqyGIbrWChNHmLtVfbyhcigONrbrMSlH34Gq9Y1n3LqtxVyM%2FK8%2Fbt5DdNgRjV3NKdNo0MJfRBzResxxbAW4KP%2B2bxTMrFVtDwbQd2n65i7q5sWnwLGuo8htUl%2B4SJzuAiMvv3U7vay%2Bb1IvNhW37bzkSPTrpgJGIanYJ8juoyeqTNV7VxJ1EAXP6WhWiI7SkGNwL3ou1aXENM5yA%2F82DJ&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20250622T131417Z&X-Amz-SignedHeaders=host&X-Amz-Expires=300&X-Amz-Credential=ASIAUPUUPRWEXKB5HBWD%2F20250622%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=312e962e9f9c491e6340120d48d54a7becb73b17210666026b201d8514b69ea5&abstractId=5287445" target="_blank" rel="noopener noreferrer">Download Research</a>
 </div>
 <div style="margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 15px; max-width: 800px; margin-left: auto; margin-right: auto;">
 <h4 style="color: var(--text-primary); margin-bottom: 1rem; text-align: center;">Executive Summary</h4>
@@ -3050,6 +3129,7 @@
         function openCalculator() {
             document.getElementById('calculatorModal').style.display = 'block';
             document.body.style.overflow = 'hidden';
+
             // Run calculation with default values
             calculateCosts();
         }
@@ -3111,14 +3191,17 @@
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
                     // Downscroll
+                    header.style.transition = 'transform 0.5s ease-in-out, background 0.5s ease-in-out';
                     header.style.transform = 'translateY(-100%)';
-                } else {
-                    // Upscroll
+                } else if (scrollTop === 0) {
+                    // At the very top - show instantly
+                    header.style.transition = 'none';
                     header.style.transform = 'translateY(0)';
                 }
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             } else {
                 // Ensure header is visible on desktop
+                header.style.transition = 'transform 0.5s ease-in-out, background 0.5s ease-in-out';
                 header.style.transform = 'translateY(0)';
             }
         });
